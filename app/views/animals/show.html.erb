@@ -9,7 +9,11 @@
       <li>
         <%= sighting.sight_date %>
         <%= sighting.latitude %>
-        <%= sighting.longitude %> |
+        <%= sighting.longitude %>
+        <% if sighting.region %>
+          <%= sighting.region.description %>
+        <% end %>
+          |
         <%= link_to "Edit", edit_animal_sighting_path(@animal, sighting) %> |
         <%= link_to "Delete", animal_sighting_path(@animal, sighting),
                                  :data => {:confirm => "Are you sure?",

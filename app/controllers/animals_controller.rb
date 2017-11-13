@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
   def index
     @animals = Animal.all
+    @regions = Region.all
   end
 
   def show
