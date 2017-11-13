@@ -1,22 +1,20 @@
 class AnimalsController < ApplicationController
   def index
     @animals = Animal.all
-    render :index
   end
 
   def show
     @animal = Animal.find(params[:id])
-    render :show
   end
 
   def new
     @animal = Animal.new
-    render :new
   end
 
   def create
     @animal = Animal.new(animal_params)
     if @animal.save
+      flash[:notice] = "List successfully added!"
       redirect_to  animals_path
     else
       render :new
@@ -25,7 +23,6 @@ class AnimalsController < ApplicationController
 
   def edit
     @animal = Animal.find(params[:id])
-    render :edit
   end
 
   def update
