@@ -7,5 +7,7 @@
   <%= f.text_field :latitude %>
   <%= f.label :sight_date %>
   <%= f.text_field :sight_date %>
+  <% option = options_from_collection_for_select(@regions, 'id', 'description') %>
+  <%= f.select :region_id, option %>
   <p><%= f.submit %></p>
 <% end %>

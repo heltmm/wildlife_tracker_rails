@@ -1,0 +1,27 @@
+<% content_for(:title, @region.description) %>
+<h1><%= @region.description %></h1>
+
+<% if @region.sightings.any? %>
+  <h4>Here are the sightings for this region:</h4>
+
+  <ul>
+    <% @region.sightings.each do |sighting| %>
+      <li>
+        <%= sighting.sight_date %>
+        <%= sighting.latitude %>
+        <%= sighting.longitude %> |
+        <%= link_to "Edit", edit_region_sighting_path(@region, sighting) %> |
+        <%= link_to "Delete", region_sighting_path(@region, sighting),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no sightings yet!</p>
+<% end %>
+
+<p><%= link_to "Delete", region_path(@region),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+<p><%= link_to "Return to regions", regions_path %></p>

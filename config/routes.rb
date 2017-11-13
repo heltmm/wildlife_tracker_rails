@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   resources :animals do
     resources :sightings, :except => [:show, :index]
   end
+
+  resources :regions do
+    resources :sightings, :except => [:show, :index]
+  end
 end

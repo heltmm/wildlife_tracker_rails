@@ -1,0 +1,10 @@
+<% content_for(:title, "Regions") %>
+<h1>Regions</h1>
+
+<ul>
+  <% @regions.each do |region| %>
+    <li><%= link_to region.description, region_path(region) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New Region", new_region_path %>
