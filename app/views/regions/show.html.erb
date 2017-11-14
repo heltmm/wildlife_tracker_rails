@@ -7,7 +7,7 @@
   <ul>
     <% @region.sightings.each do |sighting| %>
       <li>
-        <%= animal = Animal.find(sighting.animal_id).species %>
+        <%= sighting.animal.species %>
         <%= sighting.sight_date %>
         <%= sighting.latitude %>
         <%= sighting.longitude %> |
