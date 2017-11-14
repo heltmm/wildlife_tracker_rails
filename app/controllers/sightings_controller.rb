@@ -17,6 +17,7 @@ class SightingsController < ApplicationController
   end
 
   def edit
+    @regions = Region.all
     @animal = Animal.find(params[:animal_id])
     @sighting = Sighting.find(params[:id])
     render :edit
